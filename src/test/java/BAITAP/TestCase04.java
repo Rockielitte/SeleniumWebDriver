@@ -50,7 +50,7 @@ public class TestCase04 {
             Thread.sleep(2000);
 
 
-            String heading =  driver.findElement(By.xpath("//h1[normalize-space(🙁'Compare Products']")).getText();
+            String heading =  driver.findElement(By.xpath("//h1[normalize-space()='Compare Products']")).getText();
             System.out.println("ErrorMsg: "+ heading);
             if(!heading.isEmpty()){
 

@@ -1,14 +1,17 @@
 package BAITAP;
 
-
 import driver.driverFactory;
-import org.openqa.selenium.*;
-import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+import BAITAP.CheckoutPage;
 
 import java.io.File;
+import java.io.IOException;
 
 @Test
 public class TestCase06 {
@@ -92,7 +95,9 @@ public class TestCase06 {
             checkoutPage.inputStreet1("asdfg");
             checkoutPage.inputStreet2("asdfg");
             checkoutPage.inputCity("California");
-            checkoutPage.inputRegion("California");
+//            Thread.sleep(3000);
+//            checkoutPage.inputRegion("California");
+//            Thread.sleep(1000);
             checkoutPage.inputZip("1111");
             checkoutPage.inputCountry("United States");
             checkoutPage.inputTelephone("0987654321");
@@ -101,6 +106,7 @@ public class TestCase06 {
             checkoutPage.clickContinueBtn();
 
             //12b. Enter Shipping Information, and click Continue
+            Thread.sleep(2000);
             driver.findElement(By.xpath("//button[@onclick='shipping.save()']")).click();
 
             // 13. In Shipping Method, Click Continue
@@ -127,5 +133,4 @@ public class TestCase06 {
         //Quit browser session
         driver.quit();
     }
-
 }

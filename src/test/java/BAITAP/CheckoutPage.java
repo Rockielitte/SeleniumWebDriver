@@ -1,8 +1,4 @@
 package BAITAP;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,8 +20,8 @@ public class CheckoutPage {
     private By country = By.id("billing:country_id");
     private By telephone = By.id("billing:telephone");
     private By fax = By.id("billing:fax");
-    private By shipping = By.id("billing:use_for_shipping_no");
-    private By continueBtn = By.cssSelector(".button.validation-passed");
+    private By shipping = By.xpath("//label[@for='billing:use_for_shipping_no']");
+    private By continueBtn = By.xpath("//*[@id=\"billing-buttons-container\"]/button");
 
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;

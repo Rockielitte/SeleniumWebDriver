@@ -37,7 +37,7 @@ public class TestCase05 {
             registerPage.inputFirstname("Truong");
             registerPage.inputMiddlename("Nhat");
             registerPage.inputLastname("Quang");
-            registerPage.inputEmail("quangtnse171198@fpt.edu.vn");
+            registerPage.inputEmail("quangtnse1798@fpt.edu.vn");
             registerPage.inputPassword("123456");
             registerPage.inputConfirmPassword("123456");
             registerPage.clickOnRegisterBtn();
@@ -53,7 +53,7 @@ public class TestCase05 {
             Thread.sleep(2000);
 
             //6. Go to TV menu
-            driver.findElement(By.xpath("//a[normalize-space(🙁'TV']")).click();
+            driver.findElement(By.xpath("//a[normalize-space()='TV']")).click();
             //debug purpose only
             Thread.sleep(2000);
 
@@ -70,7 +70,7 @@ public class TestCase05 {
             //9. In next page enter Email and a message and click SHARE WISHLIST
             WebElement email = driver.findElement(By.xpath("//textarea[@id='email_address']"));
             email.click();
-            email.sendKeys("lili123@gmail.com");
+            email.sendKeys("truongqua@gmail.com");
 
             WebElement msg =  driver.findElement(By.xpath("//textarea[@id='message']"));
             msg.click();
