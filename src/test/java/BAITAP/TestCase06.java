@@ -108,7 +108,7 @@ public class TestCase06 {
             //12b. Enter Shipping Information, and click Continue
             Thread.sleep(2000);
             driver.findElement(By.xpath("//button[@onclick='shipping.save()']")).click();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             // 13. In Shipping Method, Click Continue
             WebElement element = driver.findElement(By.xpath("//button[@onclick='shippingMethod.save()']//span//span[contains(text(),'Continue')]"));
             element.click();

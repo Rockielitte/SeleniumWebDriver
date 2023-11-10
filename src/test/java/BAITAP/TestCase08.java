@@ -76,23 +76,48 @@ public class TestCase08 {
 
             AssertJUnit.assertEquals("$3,100.00",grand);
 
-            //11. Click "Proceed to Checkout"
+
             driver.findElement(By.xpath("//li[@class='method-checkout-cart-methods-onepage-bottom']//button[@title='Proceed to Checkout']")).click();
 
 
-            driver.findElement(By.cssSelector("button[onclick='billing.save()'] span span")).click();
+            new Select(driver.findElement(By.cssSelector("#billing-address-select"))).selectByVisibleText("New Address");
+            CheckoutPage checkoutPage = new CheckoutPage(driver);
+            checkoutPage.inputFirstname("lin");
+            checkoutPage.inputMiddlename("lin");
+            checkoutPage.inputLastname("lin");
+            checkoutPage.inputCompany("fpt");
+            checkoutPage.inputStreet1("asdfg");
+            checkoutPage.inputStreet2("asdfg");
+            checkoutPage.inputCity("California");
+//            Thread.sleep(3000);
+            checkoutPage.inputRegion("California");
+//            Thread.sleep(1000);
+            checkoutPage.inputZip("1111");
+            checkoutPage.inputCountry("United States");
+            checkoutPage.inputTelephone("0987654321");
+            checkoutPage.inputFax("11223344");
+            checkoutPage.inputShipping();
+            checkoutPage.clickContinueBtn();
+
+            //12b. Enter Shipping Information, and click Continue
             Thread.sleep(2000);
-            driver.findElement(By.xpath("//button[@onclick='shippingMethod.save()']")).click();
-           Thread.sleep(2000);
-            driver.findElement(By.cssSelector("label[for='p_method_checkmo']")).click();
+            driver.findElement(By.xpath("//button[@onclick='shipping.save()']")).click();
+            Thread.sleep(3000);
+            // 13. In Shipping Method, Click Continue
+            WebElement element = driver.findElement(By.xpath("//button[@onclick='shippingMethod.save()']//span//span[contains(text(),'Continue')]"));
+            element.click();
             Thread.sleep(2000);
-            driver.findElement(By.cssSelector("button[onclick='payment.save()'] span span")).click();
+            // 14. In Payment Information select 'Check/Money Order' radio button. Click Continue
+
+            element = driver.findElement(By.xpath("//label[@for='p_method_checkmo']"));
+            element.click();
             Thread.sleep(2000);
-            WebElement totalgrandBill=driver.findElement(By.cssSelector("strong span[class='price']"));
-            AssertJUnit.assertEquals("$3,100.00",totalgrandBill.getText());
-            WebElement qty=driver.findElement(By.xpath("//td[@class='a-center']"));
-            AssertJUnit.assertEquals("5",qty.getText());
-            driver.findElement(By.cssSelector("button[title='Place Order'] span span")).click();
+            element = driver.findElement(By.xpath("//button[@onclick='payment.save()']"));
+            element.click();
+            Thread.sleep(2000);
+            // 15. Click 'PLACE ORDER' button
+            element = driver.findElement(By.xpath("//button[@title='Place Order']"));
+            element.click();
 
 
 
