@@ -96,7 +96,7 @@ public class TestCase06 {
             checkoutPage.inputStreet2("asdfg");
             checkoutPage.inputCity("California");
 //            Thread.sleep(3000);
-//            checkoutPage.inputRegion("California");
+            checkoutPage.inputRegion("California");
 //            Thread.sleep(1000);
             checkoutPage.inputZip("1111");
             checkoutPage.inputCountry("United States");
@@ -108,18 +108,19 @@ public class TestCase06 {
             //12b. Enter Shipping Information, and click Continue
             Thread.sleep(2000);
             driver.findElement(By.xpath("//button[@onclick='shipping.save()']")).click();
-
+            Thread.sleep(2000);
             // 13. In Shipping Method, Click Continue
             WebElement element = driver.findElement(By.xpath("//button[@onclick='shippingMethod.save()']//span//span[contains(text(),'Continue')]"));
             element.click();
-
+            Thread.sleep(2000);
             // 14. In Payment Information select 'Check/Money Order' radio button. Click Continue
 
             element = driver.findElement(By.xpath("//label[@for='p_method_checkmo']"));
             element.click();
+            Thread.sleep(2000);
             element = driver.findElement(By.xpath("//button[@onclick='payment.save()']"));
             element.click();
-
+            Thread.sleep(2000);
             // 15. Click 'PLACE ORDER' button
             element = driver.findElement(By.xpath("//button[@title='Place Order']"));
             element.click();

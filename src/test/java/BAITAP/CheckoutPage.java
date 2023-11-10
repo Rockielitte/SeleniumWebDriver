@@ -15,7 +15,7 @@ public class CheckoutPage {
     private By street1 = By.id("billing:street1");
     private By street2 = By.id("billing:street2");
     private By city = By.id("billing:city");
-    private By region_id = By.id("billing:region_id");
+    private By region_id = By.id("billing:region");
     private By zip = By.id("billing:postcode");
     private By country = By.id("billing:country_id");
     private By telephone = By.id("billing:telephone");
@@ -99,7 +99,7 @@ public class CheckoutPage {
     }
 
     public void inputRegion(String region_id){
-        new Select(region_id()).selectByVisibleText(region_id);
+        region_id().sendKeys(region_id);
     }
 
     public void inputCountry(String country){
